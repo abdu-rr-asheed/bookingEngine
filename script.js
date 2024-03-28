@@ -68,18 +68,18 @@ $(function () {
     },
   ];
 
-  initializeAutocomplete("#destination", airportValues, "#Destination-values");
-  initializeAutocomplete("#departure", airportValues, "#Destination-values");
-  function initializeAutocomplete(elementId, sourceValue, appendToElementId) {
+  initializeAutocomplete("#destination", airportValues, "#destination-values");
+  initializeAutocomplete("#departure", airportValues, "#departure-values");
+  function initializeAutocomplete(elementId, sourceValue) {
     $(elementId)
       .autocomplete({
         minLength: 0,
-        appendTo: appendToElementId,
+        appendTo: elementId + "-values",
         source: sourceValue,
         select: function (event, ui) {
           console.log(ui, "ui");
           $(elementId).val(ui.item.airportCountryLabel);
-          $(elementId + "-id").val(ui.item.airportCountryLabel);
+          $(elementId + "-id").val(ui.item.value);
           $(elementId + "-description").html(ui.item.airportCountryLabel);
           return false;
         },
@@ -88,4 +88,69 @@ $(function () {
       return $("<li>").append(`<div class='destination-item d-flex align-items-center p-2'><img src='https://cdn.iconscout.com/icon/free/png-256/free-flight-1780527-1517617.png' alt='flight' width='15' height='15' /><span>${item.value}</span></div>`).appendTo(ul);
     };
   }
+
+  $("#bookingForm").on("submit", function (event) {
+    event.preventDefault();
+    console.log($("#destination-id").val());
+    console.log($("#departure-id").val());
+  });
+
+  $('input[name="roundTripStart"]').daterangepicker(
+    {
+      opens: "left",
+      autoUpdateInput: false,
+      locale: {
+        cancelLabel: "Clear",
+      },
+    },
+    function (start, end, label) {
+      $('input[name="roundTripStart"]').val(start.format("YYYY-MM-DD"));
+      $('input[name="roundTripEnd"]').val(end.format("YYYY-MM-DD"));
+      console.log("A new date selection was made: " + start.format("YYYY-MM-DD") + " to " + end.format("YYYY-MM-DD"));
+    }
+  );
+  $('input[name="OneWay"]').daterangepicker(
+    {
+      singleDatePicker: true,
+      showDropdowns: true,
+      minYear: 1901,
+      maxYear: parseInt(moment().format("YYYY"), 10),
+      autoUpdateInput: false,
+      locale: {
+        cancelLabel: "Clear",
+      },
+    },
+    function (start, end, label) {
+      console.log("A new date selection was made: " + start.format("YYYY-MM-DD"));
+    }
+  );
+  var counts = {
+    adult: 1,
+    child: 0,
+  };
+
+  $("#addAdult").click(function () {
+    counts.adult++;
+    $("#adultCount").text(counts.adult);
+  });
+
+  $("#removeAdult").click(function () {
+    if (counts.adult > 1) {
+      counts.adult--;
+      $("#adultCount").text(counts.adult);
+    }
+  });
+
+  $("#addChild").click(function () {
+    counts.child++;
+    $("#childCount").text(counts.child);
+  });
+
+  $("#removeChild").click(function () {
+    if (counts.child > 0) {
+      counts.child--;
+      $("#childCount").text(counts.child);
+    }
+  });
+  $("#addAdult").dropdown("toggle");
 });
