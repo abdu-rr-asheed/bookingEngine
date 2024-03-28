@@ -15,7 +15,6 @@
         <div class="booking-form-container">
           <div class="d-flex justify-content-center align-content-center py-5 flex-column">
             <div class="booking-form">
-              <!-- ------------------------------------------ -->
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" id="pills-round-tab" data-toggle="pill" href="#pills-round" role="tab" aria-controls="pills-round" aria-selected="true">Round Trip</a>
@@ -28,18 +27,21 @@
                 <div class="tab-pane fade show active" id="pills-round" role="tabpanel" aria-labelledby="pills-round-tab">Round Trip - 1</div>
                 <div class="tab-pane fade" id="pills-oneWay" role="tabpanel" aria-labelledby="pills-oneWay-tab">OneWay Trip - 2</div>
               </div>
-              <form>
+              <form id="bookingForm">
                 <div class="row">
                   <div class="col-3">
                     <input id="destination" />
                     <input type="hidden" id="destination-id" />
                     <p id="destination-description"></p>
+                    <div id="Destination-values"></div>
                   </div>
                   <div class="col-3">
                     <input id="departure" />
                     <input type="hidden" id="departure-id" />
                     <p id="departure-description"></p>
+                    <div id="departure-values"></div>
                   </div>
+                  <button type="submit">sub</button>
                 </div>
               </form>
             </div>
