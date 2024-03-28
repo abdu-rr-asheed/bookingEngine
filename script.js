@@ -68,18 +68,18 @@ $(function () {
     },
   ];
 
-  initializeAutocomplete("#destination", airportValues, "#Destination-values");
-  initializeAutocomplete("#departure", airportValues, "#Destination-values");
-  function initializeAutocomplete(elementId, sourceValue, appendToElementId) {
+  initializeAutocomplete("#destination", airportValues);
+  initializeAutocomplete("#departure", airportValues);
+  function initializeAutocomplete(elementId, sourceValue) {
     $(elementId)
       .autocomplete({
         minLength: 0,
-        appendTo: appendToElementId,
+        appendTo: elementId + "-values",
         source: sourceValue,
         select: function (event, ui) {
           console.log(ui, "ui");
           $(elementId).val(ui.item.airportCountryLabel);
-          $(elementId + "-id").val(ui.item.airportCountryLabel);
+          $(elementId + "-id").val(ui.item.value);
           $(elementId + "-description").html(ui.item.airportCountryLabel);
           return false;
         },
@@ -88,4 +88,10 @@ $(function () {
       return $("<li>").append(`<div class='destination-item d-flex align-items-center p-2'><img src='https://cdn.iconscout.com/icon/free/png-256/free-flight-1780527-1517617.png' alt='flight' width='15' height='15' /><span>${item.value}</span></div>`).appendTo(ul);
     };
   }
+
+  $("#bookingForm").on("submit", function (event) {
+    event.preventDefault();
+    console.log($("#destination-id").val());
+    console.log($("#departure-id").val());
+  });
 });
