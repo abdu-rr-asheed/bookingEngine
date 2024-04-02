@@ -103,7 +103,7 @@ $(function () {
 
   $('input[name="roundTripStart"]').daterangepicker(
     {
-      opens: "left",
+      opens: "right",
       autoUpdateInput: false,
       locale: {
         cancelLabel: "Clear",
@@ -117,9 +117,6 @@ $(function () {
   $('input[name="OneWay"]').daterangepicker(
     {
       singleDatePicker: true,
-      showDropdowns: true,
-      minYear: 1901,
-      maxYear: parseInt(moment().format("YYYY"), 10),
       autoUpdateInput: false,
       locale: {
         cancelLabel: "Clear",

@@ -34,6 +34,7 @@
 
 .booking-input-container {
   position: relative;
+  width: 100%;
 }
 
 .booking-input-container > label {
@@ -49,6 +50,14 @@
   border: none;
   outline: none;
   padding: 27px 10px 8px 10px;
+}
+
+input#roundTripStartInput {
+  border-radius: 6px 0 0 6px;
+}
+
+input#roundTripEndInput {
+  border-radius: 0 6px 6px 0;
 }
 
 :where(#destination-values, #departure-values) ul {
@@ -93,6 +102,7 @@
 :where(#destination-values, #departure-values) .ui-state-active.destination-item > img {
   background-color: #ffffff;
 }
+
 .submit-btn {
   width: 100%;
   height: 100%;
@@ -108,6 +118,7 @@
   width: 32px;
   filter: invert(1);
 }
+
 .adult-count-counter button {
   width: 30px;
   height: 30px;
@@ -131,9 +142,32 @@
   display: grid;
   place-items: center;
 }
+
 .adult-count-dropdown {
   border: none;
   padding: 10px;
   border-radius: 6px;
   box-shadow: 0px 5px 23px -11px rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 1200px) {
+  .return-oneWay-nav .nav-link:hover {
+    color: #f2007d;
+  }
+}
+
+@media (max-width: 992px) {
+  form#bookingForm > .row > div:not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  .submit-btn {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 10px;
+    color: white;
+  }
 }
