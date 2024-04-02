@@ -27,14 +27,6 @@
                 <div class="row">
                   <div class="col-lg-3 col-12">
                     <div class="booking-input-container">
-                      <label for="destination">Destination</label>
-                      <input id="destination" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
-                    </div>
-                    <input type="hidden" id="destination-id" />
-                    <div id="destination-values"></div>
-                  </div>
-                  <div class="col-lg-3 col-12">
-                    <div class="booking-input-container">
                       <label for="departure">Departure</label>
                       <input id="departure" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
                     </div>
@@ -42,15 +34,23 @@
                     <div id="departure-values"></div>
                   </div>
                   <div class="col-lg-3 col-12">
+                    <div class="booking-input-container">
+                      <label for="destination">Destination</label>
+                      <input id="destination" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
+                    </div>
+                    <input type="hidden" id="destination-id" />
+                    <div id="destination-values"></div>
+                  </div>
+                  <div class="col-lg-3 col-12">
                     <div class="tab-content" id="pills-tabContent">
                       <div class="tab-pane fade show active" id="pills-round" role="tabpanel" aria-labelledby="pills-round-tab">
                         <div class="d-flex flex-nowrap align-items-center">
                           <div class="booking-input-container">
-                            <label for="">Round Trip</label>
+                            <label for="">Leaving on</label>
                             <input type="text" placeholder="City or Airport" name="roundTripStart" id="roundTripStartInput" class="ui-autocomplete-input w-100" />
                           </div>
                           <div class="booking-input-container">
-                            <label for="">Round Trip end</label>
+                            <label for="">Returning on</label>
                             <input type="text" placeholder="City or Airport" name="roundTripEnd" id="roundTripEndInput" class="ui-autocomplete-input w-100" />
                           </div>
                         </div>

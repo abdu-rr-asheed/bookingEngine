@@ -105,6 +105,7 @@ $(function () {
     {
       opens: "right",
       autoUpdateInput: false,
+      minDate: new Date(),
       locale: {
         cancelLabel: "Clear",
       },
@@ -118,6 +119,7 @@ $(function () {
     {
       singleDatePicker: true,
       autoUpdateInput: false,
+      minDate: new Date(),
       locale: {
         cancelLabel: "Clear",
       },
