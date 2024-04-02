@@ -30,6 +30,7 @@
 .return-oneWay-nav .nav-link.active {
   background-color: #ffffff;
   color: #f2007d;
+  font-weight: 700;
 }
 
 .booking-input-container {
@@ -150,13 +151,77 @@ input#roundTripEndInput {
   box-shadow: 0px 5px 23px -11px rgba(0, 0, 0, 0.75);
 }
 
+.text-overflow-css {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.bookingCalender > div {
+  top: 100% !important;
+  border: none;
+  box-shadow: 0px 5px 23px -11px rgba(0, 0, 0, 0.75);
+  margin-top: 0;
+  border-radius: 6px;
+}
+
+.bookingCalender > div:before,
+.bookingCalender > div::after {
+  display: none;
+}
+.bookingCalender .daterangepicker td.in-range {
+  background-color: #fff3f8;
+}
+.bookingCalender .daterangepicker td.active,
+.bookingCalender .daterangepicker td.active:hover {
+  background-color: #f2007d;
+}
+
+.date-apply-btn {
+  border-radius: 3px;
+  padding: 6px 9px;
+  box-shadow: none;
+  outline: none;
+}
+.applyBtn.date-apply-btn {
+  background-color: #f2007d !important;
+  border-color: #f2007d;
+}
+.cancelBtn.date-apply-btn {
+  background-color: #f5f5f5 !important;
+  border-color: #f5f5f5;
+}
+
 @media (min-width: 1200px) {
   .return-oneWay-nav .nav-link:hover {
     color: #f2007d;
   }
 }
 
+@media (min-width: 992px) {
+  .bookingCalender.range {
+    width: 484px;
+  }
+  input#departure {
+    border-radius: 6px 0 0 6px;
+  }
+
+  input#destination {
+    border-radius: 0 6px 6px 0;
+  }
+}
 @media (max-width: 992px) {
+  .bookingCalender > div {
+    position: fixed !important;
+    inset: auto 0 0 0 !important;
+    width: 100%;
+  }
+  .bookingCalender .daterangepicker .drp-calendar.left,
+  .bookingCalender .daterangepicker .drp-calendar.right {
+    margin: auto;
+    max-width: 100%;
+    width: 50%;
+  }
   form#bookingForm > .row > div:not(:last-child) {
     margin-bottom: 14px;
   }
@@ -169,5 +234,22 @@ input#roundTripEndInput {
     font-size: 1.2rem;
     gap: 10px;
     color: white;
+  }
+  .bookingCalender .daterangepicker .calendar-table th,
+  .bookingCalender .daterangepicker .calendar-table td {
+    line-height: 34px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .bookingCalender .daterangepicker .drp-calendar.left,
+  .bookingCalender .daterangepicker .drp-calendar.right {
+    width: 100%;
+  }
+  .bookingCalender .daterangepicker .calendar-table th,
+  .bookingCalender .daterangepicker .calendar-table td {
+    line-height: 34px !important;
+    font-size: 12px !important;
   }
 }

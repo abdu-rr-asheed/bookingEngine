@@ -25,17 +25,17 @@
               </ul>
               <form id="bookingForm">
                 <div class="row">
-                  <div class="col-lg-3 col-12">
+                  <div class="col-lg-3 col-12 pr-lg-0">
                     <div class="booking-input-container">
-                      <label for="departure">Departure</label>
+                      <label for="departure" class="text-overflow-css">Departure</label>
                       <input id="departure" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
                     </div>
                     <input type="hidden" id="departure-id" />
                     <div id="departure-values"></div>
                   </div>
-                  <div class="col-lg-3 col-12">
+                  <div class="col-lg-3 col-12 pl-lg-0">
                     <div class="booking-input-container">
-                      <label for="destination">Destination</label>
+                      <label for="destination" class="text-overflow-css">Destination</label>
                       <input id="destination" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
                     </div>
                     <input type="hidden" id="destination-id" />
@@ -46,33 +46,35 @@
                       <div class="tab-pane fade show active" id="pills-round" role="tabpanel" aria-labelledby="pills-round-tab">
                         <div class="d-flex flex-nowrap align-items-center">
                           <div class="booking-input-container">
-                            <label for="">Leaving on</label>
+                            <label for="" class="text-overflow-css">Leaving on</label>
                             <input type="text" placeholder="City or Airport" name="roundTripStart" id="roundTripStartInput" class="ui-autocomplete-input w-100" />
                           </div>
                           <div class="booking-input-container">
-                            <label for="">Returning on</label>
+                            <label for="" class="text-overflow-css">Returning on</label>
                             <input type="text" placeholder="City or Airport" name="roundTripEnd" id="roundTripEndInput" class="ui-autocomplete-input w-100" />
                           </div>
                         </div>
+                        <div id="rangeCalenderDiv" class="bookingCalender position-relative range"></div>
                       </div>
                       <div class="tab-pane fade" id="pills-oneWay" role="tabpanel" aria-labelledby="pills-oneWay-tab">
                         <div class="booking-input-container">
-                          <label for="">One Way</label>
+                          <label for="" class="text-overflow-css">One Way</label>
                           <input type="text" name="OneWay" placeholder="City or Airport" id="oneWayInput" class="ui-autocomplete-input w-100" />
                         </div>
+                        <div id="CalenderDiv" class="bookingCalender position-relative"></div>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-2 col-12">
                     <div class="dropdown">
                       <div class="booking-input-container" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false" id="asd">
-                        <label for="travellers">Travellers</label>
+                        <label for="travellers" class="text-overflow-css">Travellers</label>
                         <input id="travellers-input" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
                         <input id="travellers-adult-id" type="hidden" />
                         <input id="travellers-children-id" type="hidden" />
                       </div>
-                      <div class="dropdown-menu adult-count-dropdown" aria-labelledby="dropdownMenuButton">
-                        <div>
+                      <div class="dropdown-menu adult-count-dropdown" aria-labelledby="dropdownMenuButton" id="dropdrowCount">
+                        <div id="dropdrowCountClick">
                           <div class="adult-count-container d-flex justify-content-between align-items-center mb-3">
                             <div class="adult-count-details">
                               <div>Adults</div>

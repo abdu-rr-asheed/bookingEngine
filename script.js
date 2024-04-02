@@ -104,8 +104,10 @@ $(function () {
   $('input[name="roundTripStart"]').daterangepicker(
     {
       opens: "right",
+      parentEl: "#rangeCalenderDiv",
       autoUpdateInput: false,
       minDate: new Date(),
+      buttonClasses: "date-apply-btn btn",
       locale: {
         cancelLabel: "Clear",
       },
@@ -119,7 +121,9 @@ $(function () {
     {
       singleDatePicker: true,
       autoUpdateInput: false,
+      parentEl: "#CalenderDiv",
       minDate: new Date(),
+      buttonClasses: "date-apply-btn btn",
       locale: {
         cancelLabel: "Clear",
       },
@@ -164,4 +168,7 @@ $(function () {
       updateCounts();
     }
   });
+  $("#dropdrowCountClick").click(function () {
+    $("#dropdrowCount").toggle("show");
+  }, false);
 });
