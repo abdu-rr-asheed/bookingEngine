@@ -68,8 +68,13 @@ $(function () {
     },
   ];
 
+<<<<<<< HEAD
   initializeAutocomplete("#destination", airportValues, "#destination-values");
   initializeAutocomplete("#departure", airportValues, "#departure-values");
+=======
+  initializeAutocomplete("#destination", airportValues);
+  initializeAutocomplete("#departure", airportValues);
+>>>>>>> 5f71c524d127cab481b4f580adbfb3848aa6c738
   function initializeAutocomplete(elementId, sourceValue) {
     $(elementId)
       .autocomplete({
