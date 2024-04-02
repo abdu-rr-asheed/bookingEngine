@@ -66,39 +66,39 @@
                   <div class="col-2">
                     <div class="dropdown">
                       <div class="booking-input-container" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false" id="asd">
-                        <label for="destination">Destination</label>
-                        <input id="destination" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
+                        <label for="travellers">Travellers</label>
+                        <input id="travellers-input" placeholder="City or Airport" class="ui-autocomplete-input w-100" />
+                        <input id="travellers-adult-id" type="hidden" />
+                        <input id="travellers-children-id" type="hidden" />
                       </div>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <div class="dropdown-menu adult-count-dropdown" aria-labelledby="dropdownMenuButton">
                         <div>
-                          <div class="d-none">
-                            <h1>Passenger Count</h1>
-                            <p>
-                              Adults:
-                              <span id="adultCount">1</span>
-                            </p>
-                            <button id="addAdult">Add Adult</button>
-                            <button id="removeAdult">Remove Adult</button>
-
-                            <p>
-                              Children:
-                              <span id="childCount">0</span>
-                            </p>
-                            <button id="addChild">Add Child</button>
-                            <button id="removeChild">Remove Child</button>
-                          </div>
-                          <!--  -->
-                          <div class="adult-count-container d-flex justify-content-between align-items-center">
+                          <div class="adult-count-container d-flex justify-content-between align-items-center mb-3">
                             <div class="adult-count-details">
-                              <div class="d-b6p8y6">Adults</div>
-                              <div class="d-32ixoa">12+</div>
+                              <div>Adults</div>
+                              <div>12+</div>
                             </div>
                             <div class="adult-count-counter d-flex justify-content-center align-items-center">
-                              <button aria-label="Decrease the number of adults" tabindex="-1" type="button" class="d-p95uvd">
+                              <button id="removeAdult">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="0" fill="currentColor" width="1em" height="1em"><path d="M19 13H5V11H19V13Z"></path></svg>
                               </button>
-                              <span class="d-32d0y">2</span>
-                              <button aria-label="Increase the number of adults" tabindex="-1" type="button" class="d-p95uvd">
+                              <span id="adultCount">1</span>
+                              <button id="addAdult">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="0" fill="currentColor" width="1em" height="1em"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="adult-count-container d-flex justify-content-between align-items-center">
+                            <div class="adult-count-details">
+                              <div>Children</div>
+                              <div>4+</div>
+                            </div>
+                            <div class="adult-count-counter d-flex justify-content-center align-items-center">
+                              <button id="removeChild">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="0" fill="currentColor" width="1em" height="1em"><path d="M19 13H5V11H19V13Z"></path></svg>
+                              </button>
+                              <span id="childCount">0</span>
+                              <button id="addChild">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="0" fill="currentColor" width="1em" height="1em"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>
                               </button>
                             </div>
@@ -112,7 +112,6 @@
                       <img src="search.svg" alt="" />
                     </button>
                   </div>
-                  <button type="submit">sub</button>
                 </div>
               </form>
             </div>

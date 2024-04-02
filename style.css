@@ -108,3 +108,32 @@
   width: 32px;
   filter: invert(1);
 }
+.adult-count-counter button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: none;
+  outline: none;
+  border-radius: 100%;
+}
+
+.adult-count-counter {
+  gap: 10px;
+}
+
+.adult-count-container {
+  min-width: 230px;
+}
+
+.adult-count-counter span {
+  width: 20px;
+  display: grid;
+  place-items: center;
+}
+.adult-count-dropdown {
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0px 5px 23px -11px rgba(0, 0, 0, 0.75);
+}

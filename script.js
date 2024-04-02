@@ -77,7 +77,6 @@ $(function () {
         appendTo: elementId + "-values",
         source: sourceValue,
         select: function (event, ui) {
-          console.log(ui, "ui");
           $(elementId).val(ui.item.airportCountryLabel);
           $(elementId + "-id").val(ui.item.value);
           $(elementId + "-description").html(ui.item.airportCountryLabel);
@@ -91,8 +90,15 @@ $(function () {
 
   $("#bookingForm").on("submit", function (event) {
     event.preventDefault();
-    console.log($("#destination-id").val());
-    console.log($("#departure-id").val());
+    let submitValues = {
+      destination: $("#destination-id").val(),
+      departure: $("#departure-id").val(),
+      startReturn: $("#roundTripStartInput").val(),
+      endReturn: $("#roundTripEndInput").val(),
+      oneWayDate: $("#oneWayInput").val(),
+      Travelers: counts,
+    };
+    console.table(submitValues);
   });
 
   $('input[name="roundTripStart"]').daterangepicker(
@@ -106,7 +112,6 @@ $(function () {
     function (start, end, label) {
       $('input[name="roundTripStart"]').val(start.format("YYYY-MM-DD"));
       $('input[name="roundTripEnd"]').val(end.format("YYYY-MM-DD"));
-      console.log("A new date selection was made: " + start.format("YYYY-MM-DD") + " to " + end.format("YYYY-MM-DD"));
     }
   );
   $('input[name="OneWay"]').daterangepicker(
@@ -121,7 +126,7 @@ $(function () {
       },
     },
     function (start, end, label) {
-      console.log("A new date selection was made: " + start.format("YYYY-MM-DD"));
+      $('input[name="OneWay"]').val(start.format("YYYY-MM-DD"));
     }
   );
   var counts = {
@@ -129,28 +134,35 @@ $(function () {
     child: 0,
   };
 
+  function updateCounts() {
+    $("#adultCount").text(counts.adult);
+    $("#childCount").text(counts.child);
+    $("#travellers-input").val("Adult - " + counts.adult + ", Child - " + counts.child);
+    $("#travellers-adult-id").val(counts.adult);
+    $("#travellers-children-id").val(counts.child);
+  }
+
   $("#addAdult").click(function () {
     counts.adult++;
-    $("#adultCount").text(counts.adult);
+    updateCounts();
   });
 
   $("#removeAdult").click(function () {
     if (counts.adult > 1) {
       counts.adult--;
-      $("#adultCount").text(counts.adult);
+      updateCounts();
     }
   });
 
   $("#addChild").click(function () {
     counts.child++;
-    $("#childCount").text(counts.child);
+    updateCounts();
   });
 
   $("#removeChild").click(function () {
     if (counts.child > 0) {
       counts.child--;
-      $("#childCount").text(counts.child);
+      updateCounts();
     }
   });
-  $("#addAdult").dropdown("toggle");
 });
